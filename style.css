@@ -1,0 +1,59 @@
+/* ===== Body styling ===== */
+body {
+    background-color: #222;      /* dark page background */
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* ===== Farm container ===== */
+#farm {
+    position: relative;
+    width: 640px;   /* adjust to your farm map width */
+    height: 480px;  /* adjust to your farm map height */
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+/* ===== Farm map background ===== */
+#farm-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("farm-map.png"); /* your map image */
+    background-size: cover;
+    background-position: top left;
+    image-rendering: pixelated;           /* keeps pixel-art sharp */
+    z-index: 1;
+}
+
+/* ===== Grid overlay ===== */
+#grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: grid;
+    grid-template-columns: repeat(40, 16px); /* 40 tiles across */
+    grid-template-rows: repeat(30, 16px);    /* 30 tiles down */
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+/* ===== Individual tiles ===== */
+.tile {
+    width: 16px;
+    height: 16px;
+    background: rgba(0,0,0,0);               /* transparent by default */
+    border: 1px solid rgba(255,255,255,0.05); /* faint grid lines */
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+/* ===== Placed tile effect ===== */
+.tile.placed {
+    background: rgba(255,150,0,0.5);   /* placeholder color for objects */
+    border: 1px solid rgba(255,150,0,0.8);
+}
