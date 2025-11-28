@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fields of Mistria Planner</title>
+    <style>
+        body {
+            background: #222;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+        #farm {
+            display: grid;
+            grid-template-columns: repeat(40, 16px); /* 40 tiles across */
+            grid-template-rows: repeat(30, 16px); /* 30 tiles tall */
+            gap: 1px;
+        }
+        .tile {
+            width: 16px;
+            height: 16px;
+            background: #3a5d3a; /* grass color */
+            border: 1px solid rgba(0,0,0,0.2);
+        }
+        .tile.placed {
+            background: #b5651d; /* example “placed item” color */
+        }
+    </style>
+</head>
+<body>
+
+    <div id="farm"></div>
+
+<script>
+    const farm = document.getElementById("farm");
+
+    // Make the grid
+    for (let i = 0; i < 40 * 30; i++) {
+        let tile = document.createElement("div");
+        tile.classList.add("tile");
+
+        // Click → place/remove
+        tile.addEventListener("click", () => {
+            tile.classList.toggle("placed");
+        });
+
+        farm.appendChild(tile);
+    }
+</script>
+
+</body>
+</html>
